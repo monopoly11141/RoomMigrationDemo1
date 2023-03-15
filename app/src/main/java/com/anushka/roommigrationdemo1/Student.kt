@@ -13,6 +13,6 @@ data class Student(
     @ColumnInfo(name = "student_name")
     var name : String,
 
-    @ColumnInfo(name = "student_email", defaultValue = "N/A")
-    var email : String
+    @ColumnInfo(name = "student_subject_info")
+    var courseInfo : String?
 )

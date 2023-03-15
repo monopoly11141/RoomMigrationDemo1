@@ -14,15 +14,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val dao = StudentDatabase.getInstance(application).subscriberDAO
 
-        val etEmail = findViewById<EditText>(R.id.etEmail)
+        val etCourse = findViewById<EditText>(R.id.etCourse)
         val nameEditText = findViewById<EditText>(R.id.etName)
         val button = findViewById<Button>(R.id.btnSubmit)
+
         button.setOnClickListener {
             lifecycleScope.launch {
                 nameEditText.text.let {
-                    dao.insertStudent(Student(0,it.toString(), etEmail.text.toString()))
+                    dao.insertStudent(Student(0,it.toString(), etCourse.text.toString()))
                     nameEditText.setText("")
-                    etEmail.setText("")
+                    etCourse.setText("")
                 }
             }
         }
